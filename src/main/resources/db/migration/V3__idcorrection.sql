@@ -1,1 +1,11 @@
-CREATE SEQUENCE IF NOT EXISTS products
+CREATE SEQUENCE IF NOT EXISTS products_id_seq
+OWNED BY product.id;
+
+ALTER TABLE product
+    ALTER COLUMN id SET DEFAULT nextval('product_id_seq')
+
+SELECT setval(
+       'product_id_seq',
+       COALESCE((SELECT MAX(id) FROM product))
+       false
+       );

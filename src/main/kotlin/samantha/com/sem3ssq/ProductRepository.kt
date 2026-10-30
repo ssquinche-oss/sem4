@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ProductRepository: JpaRepository<Product, Int> {
+    fun findBy(nombre: String): Boolean
 }
