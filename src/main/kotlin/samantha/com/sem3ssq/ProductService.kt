@@ -8,7 +8,7 @@ class ProductService {
     @Autowired
     private lateinit var productRepository: ProductRepository
 
-    fun listar(): List<Product>{
+    fun Productos(): List<Product>{
         return productRepository.findAll()
     }
 }
